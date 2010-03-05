@@ -18,7 +18,7 @@ return array
 	// You ORM models there
 	'models' => array
 	(
-		'city' => array
+		'model' => array
 		(
 			// objects_per_folder: Max object in folder. May be reached 
 			// limit_folders: Max amount of folders. If it reached, it will be filled from start
@@ -38,7 +38,7 @@ return array
 		
 			'thumbs' => array
 			(
-				'gerb' => array
+				'thumb' => array
 				(
 					'default_size' => 'original',
 					'sizes' => array
@@ -114,9 +114,6 @@ return array
 					),
 				),
 			),
-		),
-		'action' => array
-		(
 		),
 	)
 );

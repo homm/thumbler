@@ -160,7 +160,7 @@ class Thumbler
 				array(':dir' => Kohana::debug_path($dir)));
 		}
 		
-		// This config is only 
+		// Config 
 		$image_config = $this->get_config();
 		
 		if ($input_file !== TRUE)
@@ -211,7 +211,24 @@ class Thumbler
 	
 	public function delete_image()
 	{
+		// Config 
+		$image_config = $this->get_config();
 		
+		$image_sizes = array_keys($image_config['sizes']);
+		
+		foreach ($image_sizes AS $size)
+		{
+			$path = $this->path($size, TRUE);
+			
+			if (file_exists($path))
+			{
+				try
+				{
+					unlink($path);
+				}
+				catch (Exception $e) {};
+			}
+		}
 	}
 	
 	protected function directory($in_file_system = FALSE)
