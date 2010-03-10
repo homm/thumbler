@@ -204,6 +204,11 @@ class Thumbler
 		
 		$image->resize($config['width'], $config['height'], $config['master']);
 		
+		if ($config['strict_size'] AND $config['width'] AND $config['height'])
+		{
+			$image->padding($config['width'], $config['height'], $config['align_x'], $config['align_y'], $config['back_color']);
+		}
+		
 		$image->save($path, empty($config['quality']) ? Kohana::config('thumbler.default_quality', 85) : $config['quality']);
 		
 		return $image;
